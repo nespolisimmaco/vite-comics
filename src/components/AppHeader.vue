@@ -77,6 +77,7 @@ export default {
                     <ul class="header-list">
                         <li v-for="(link, index) in links" :class="link.current ? 'active' : ''">
                             <a :href="link.url">{{ link.text }}</a>
+                            <div v-show="link.current" class="active-bar"></div>
                         </li>
                     </ul>
                 </div>
@@ -101,8 +102,8 @@ header {
             align-items: center;
             .logo {
                 img {
-                    height: $header-height;
-                    padding: 15px 0;
+                    height: 70px;
+                    
                 }
             }
             .header-links {
@@ -115,11 +116,18 @@ header {
                         margin-right: 1.5rem;
                         font-size: .7rem;
                         font-weight: 600;
+                        position: relative;
                         &.active {
-                            border-bottom: 3px solid $primary-blue;
                             & a {
                                 color: $primary-blue;
                             }
+                        }
+                        .active-bar {
+                            width: 100%;
+                            height: 5px;
+                            background-color: $primary-blue;
+                            position: absolute;
+                            bottom: 0;
                         }
                         a {
                             text-decoration: none;
