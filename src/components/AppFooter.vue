@@ -15,7 +15,9 @@ export default {
         <div class="footer-top">
             <!-- Content -->
             <div class="top-content">
+                <!-- Footer links and image -->
                 <div class="top-footer-links">
+                    <!-- Top footer links -->
                     <div class="links">
                         <!-- First column -->
                         <div class="column-links">
@@ -114,7 +116,9 @@ export default {
                             </ul>
                         </div>
                     </div>
+                    <!-- End Top footer links -->
                 </div>
+                <!-- End Footer links and image -->
             </div>
             <!-- End Content -->
         </div>
@@ -122,7 +126,29 @@ export default {
         <div class="footer-bottom">
             <!-- Content -->
             <div class="bottom-content">
-
+                <!-- Sign-up button -->
+                <a class="sign-up-button" href="#">SIGN-UP NOW!</a>
+                <!-- Social links -->
+                <div class="social-links">
+                    <h2>FOLLOW US</h2>
+                    <ul>
+                        <li>
+                            <a href="#"><img src="../assets/img/footer-facebook.png" alt="Facebook"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="../assets/img/footer-twitter.png" alt="Twitter"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="../assets/img/footer-youtube.png" alt="Youtube"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="../assets/img/footer-pinterest.png" alt="Pinterest"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="../assets/img/footer-periscope.png" alt="Periscope"></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <!-- End Content -->
         </div>
@@ -165,5 +191,36 @@ export default {
                 }
             }
         }
+}
+.footer-bottom {
+    background-color: $footer-grey;
+    height: $header-height;
+    .bottom-content {
+        @include container();
+        @include flex();
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+        .sign-up-button {
+            border: 2px solid $primary-blue;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+        }
+        .social-links {
+            @include flex();
+            h2 {
+                color: $primary-blue;
+                margin-right: 1rem;
+            }
+            ul {
+                @include flex();
+                li {
+                    list-style-type: none;
+                    margin: 0 10px;
+                }
+            }
+        }
+    }
 }
 </style>
