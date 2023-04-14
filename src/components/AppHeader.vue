@@ -75,7 +75,7 @@ export default {
                 <!-- Links -->
                 <div class="header-links">
                     <ul class="header-list">
-                        <li v-for="(link, index) in links" :class="link.current ? 'active' : ''">
+                        <li v-for="(link, index) in links" :class="link.current ? 'active' : ''" :key="index">
                             <a :href="link.url">{{ link.text }}</a>
                             <div v-show="link.current" class="active-bar"></div>
                         </li>
