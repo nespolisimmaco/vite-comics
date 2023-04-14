@@ -40,6 +40,7 @@ export default {
         color: white;
         text-align: left;
         font-weight: 500;
+        font-size: .8rem;
     }
 }
 </style>

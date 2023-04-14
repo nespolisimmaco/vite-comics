@@ -96,7 +96,8 @@ export default {
             <h2>CURRENT SERIES</h2>
             <!-- Comics -->
             <div class="row">
-                <AppCard v-for="(comic, index) in comics" :image="comic.thumb" :text="comic.series" :key="index" />
+                <AppCard v-for="(comic, index) in comics" :image="comic.thumb" :text="comic.series.toUpperCase()"
+                    :key="index" />
             </div>
             <!-- Button -->
             <a href="#">
