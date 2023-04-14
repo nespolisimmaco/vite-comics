@@ -3,7 +3,28 @@ export default {
     name: "AppFooter",
     data() {
         return {
-
+            socialLinks: [
+                {
+                    icon: "footer-facebook.png"
+                },
+                {
+                    icon: "footer-twitter.png"
+                },
+                {
+                    icon: "footer-youtube.png"
+                },
+                {
+                    icon: "footer-pinterest.png"
+                },
+                {
+                    icon: "footer-periscope.png"
+                }
+            ]
+        }
+    },
+    methods: {
+        getImagePath(img) {
+            return new URL(`../assets/img/${img}`, import.meta.url).href;
         }
     }
 }
@@ -132,20 +153,8 @@ export default {
                 <div class="social-links">
                     <h2>FOLLOW US</h2>
                     <ul>
-                        <li>
-                            <a href="#"><img src="../assets/img/footer-facebook.png" alt="Facebook"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="../assets/img/footer-twitter.png" alt="Twitter"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="../assets/img/footer-youtube.png" alt="Youtube"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="../assets/img/footer-pinterest.png" alt="Pinterest"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="../assets/img/footer-periscope.png" alt="Periscope"></a>
+                        <li v-for="(link, index) in socialLinks" :key="index">
+                            <a href="#"><img :src="getImagePath(link.icon)" alt=""></a>
                         </li>
                     </ul>
                 </div>
@@ -160,61 +169,74 @@ export default {
 @use "../style/partials/variables" as *;
 
 .footer-top {
-        background-image: url(../assets/img/footer-bg.jpg);    
-        .top-content {
-            @include container();
-            .top-footer-links {
-                padding: 2rem 0 3rem;
-                background-image: url(../assets/img/dc-logo-bg.png);
-                background-repeat: no-repeat;
-                background-position: right;
-                .links {
-                    @include flex();
-                    width: 40%;
-                    .column-links {
-                        width: calc(100% / 3);
-                        h2 {
-                            color: white;
-                            margin-bottom: 1rem;
-                        }
-                        li {
-                            list-style-type: none;
-                            font-size: .8rem;
-                            margin: 8px 0;
-    
-                            a {
-                                color: grey;
-                                text-decoration: none;
-                            }
+    background-image: url(../assets/img/footer-bg.jpg);
+
+    .top-content {
+        @include container();
+
+        .top-footer-links {
+            padding: 2rem 0 3rem;
+            background-image: url(../assets/img/dc-logo-bg.png);
+            background-repeat: no-repeat;
+            background-position: right;
+
+            .links {
+                @include flex();
+                width: 40%;
+
+                .column-links {
+                    width: calc(100% / 3);
+
+                    h2 {
+                        color: white;
+                        margin-bottom: 1rem;
+                    }
+
+                    li {
+                        list-style-type: none;
+                        font-size: .8rem;
+                        margin: 8px 0;
+
+                        a {
+                            color: grey;
+                            text-decoration: none;
                         }
                     }
                 }
             }
         }
+    }
 }
+
 .footer-bottom {
     background-color: $footer-grey;
     height: $header-height;
+
     .bottom-content {
         @include container();
         @include flex();
         height: 100%;
         justify-content: space-between;
         align-items: center;
+
         .sign-up-button {
             border: 2px solid $primary-blue;
             padding: 10px;
             color: white;
             text-decoration: none;
         }
+
         .social-links {
             @include flex();
+
             h2 {
                 color: $primary-blue;
                 margin-right: 1rem;
             }
+
             ul {
                 @include flex();
+
                 li {
                     list-style-type: none;
                     margin: 0 10px;
